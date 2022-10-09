@@ -2,13 +2,11 @@
 
 Open **buku** web bookmarks in your terminal using a web browser of your choice (Safari or Chrome) on macOs.
 
-
-
 # Depends
 
 - [buku](https://github.com/jarun/buku)
 
-- [fzf]([GitHub - junegunn/fzf: A command-line fuzzy finder](https://github.com/junegunn/fzf))
+- [fzf](https://github.com/junegunn/fzf)
 
 - cut
 
