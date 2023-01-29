@@ -50,9 +50,11 @@ if [[ "$token" == "//" ]]; then
 fi
 
 sed '
+/'"$token"'/ {
 s/'"$token"'.*//
 s/[[:blank:]]*$//
 /^$/ d
+}
 ' "$filename" >"$newfile"
 
 bat "$newfile"

@@ -52,11 +52,13 @@ while true; do
 		;;
 	esac
 done
-
-sed '
+# the following command work only on lines that contain a token that is not escaped
+sed -E '
+/'"$token"'/ {
 s/'"$token"'.*//
 s/[[:blank:]]*$//
 /^$/ d
+}
 ' "$filename" >"$newfile"
 
 bat "$newfile"
