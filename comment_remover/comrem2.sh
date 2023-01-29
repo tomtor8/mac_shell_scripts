@@ -52,8 +52,8 @@ while true; do
 		;;
 	esac
 done
-# the following command work only on lines that contain a token that is not escaped
-sed -E '
+# the following command work only on lines that contain a token
+sed '
 /'"$token"'/ {
 s/'"$token"'.*//
 s/[[:blank:]]*$//
