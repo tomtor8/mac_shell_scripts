@@ -75,10 +75,27 @@ done
 
 # turn the final sum into a readable format
 readablesum=$(echo "$finalsum" |
-sed '{
+	sed '{
 :start
 s/\(.*[0-9]\)\([0-9]\{3\}\)/\1,\2/
 t start
 }')
 
 echo "The converted decimal number is: $readablesum."
+
+# -c flag to optionally copy the result to a clipboard
+while getopts :c opt; do
+	case "$opt" in
+	c)
+		echo "$finalsum" | pbcopy
+		echo "-----------------------------------"
+		echo "The result copied to the system clipboard."
+		;;
+	*)
+		echo "-----------------------------------"
+		echo "Unknown flag!"
+		echo "List of available flags:"
+		echo "-c: copy the result to the clipboard"
+		;;
+	esac
+done
